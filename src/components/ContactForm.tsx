@@ -4,15 +4,60 @@ import { Send, Phone, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import AnimateIn from "./AnimateIn";
 
+const CONTACT_FORM_EMAIL =
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL || "burchenkodima476@gmail.com";
+
 export default function ContactForm() {
   const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", phone: "", truck: "", experience: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setSendError(null);
+    setSending(true);
+    try {
+      const res = await fetch(
+        `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_FORM_EMAIL)}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: `MDK Transport — заявка: ${form.name.trim()}`,
+            _template: "table",
+            _honey: "",
+            name: form.name.trim(),
+            phone: form.phone.trim(),
+            truck: form.truck,
+            experience: form.experience.trim() || "—",
+          }),
+        },
+      );
+      const data = (await res.json().catch(() => null)) as {
+        success?: boolean | string;
+        message?: string;
+      } | null;
+      const ok =
+        res.ok &&
+        data &&
+        (data.success === true || data.success === "true");
+      if (!ok) {
+        setSendError(t("contact_error"));
+        return;
+      }
+      setSubmitted(true);
+      setForm({ name: "", phone: "", truck: "", experience: "" });
+      setTimeout(() => setSubmitted(false), 8000);
+    } catch {
+      setSendError(t("contact_error"));
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -40,6 +85,11 @@ export default function ContactForm() {
               </div>
             ) : (
               <div className="space-y-6">
+                {sendError && (
+                  <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+                    {sendError}
+                  </p>
+                )}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">{t("contact_name")}</label>
                   <input
@@ -88,9 +138,10 @@ export default function ContactForm() {
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white py-4 rounded-xl font-semibold text-lg transition-colors shadow-lg shadow-emerald-600/25 active:scale-[0.98]"
+                  disabled={sending}
+                  className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-60 disabled:pointer-events-none text-white py-4 rounded-xl font-semibold text-lg transition-colors shadow-lg shadow-emerald-600/25 active:scale-[0.98]"
                 >
-                  {t("contact_submit")}
+                  {sending ? t("contact_sending") : t("contact_submit")}
                   <Send className="w-5 h-5" />
                 </button>
               </div>

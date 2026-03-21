@@ -33,7 +33,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     service_4_desc: "Наши водители получают выплаты по пик-апам на следующей неделе в пятницу утром. Мы придерживаемся стабильного и прозрачного графика выплат.",
 
     about_title: "О компании",
-    about_text: "Мы — динамично развивающаяся диспетчерская команда профессионалов, открытая к сотрудничеству и новым возможностям. Мы ищем партнеров, которые разделяют наши ценности и стремление к росту, чтобы вместе достигать новых высот. Давайте строить успешное будущее вместе!",
+    about_text: "Мы — динамично развивающаяся диспетчерская команда профессионалов, открытая к сотрудничеству и новым возможностям.",
     trailers_title: "Что мы используем в работе?",
     trailer_enclosed: "Enclosed",
     trailer_enclosed_desc: "Закрытый трейлер — один из самых востребованных и высокооплачиваемых вариантов для работы.",
@@ -104,6 +104,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     contact_experience: "Давно ли вы в сфере?",
     contact_submit: "Отправить",
     contact_success: "Спасибо! Мы свяжемся с вами в ближайшее время.",
+    contact_sending: "Отправка…",
+    contact_error: "Не удалось отправить заявку. Позвоните нам: 253-527-7115.",
 
     footer_address: "100 N Howard St Ste W, Spokane, WA 99201",
     footer_call: "Звоните нам",
@@ -168,7 +170,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     service_4_desc: "Наші водії отримують виплати по пік-апам наступного тижня в п'ятницю вранці. Ми дотримуємося стабільного та прозорого графіку виплат.",
 
     about_title: "Про компанію",
-    about_text: "Ми — диспетчерська команда професіоналів, що динамічно розвивається, відкрита до співпраці та нових можливостей. Ми шукаємо партнерів, які поділяють наші цінності та прагнення до зростання, щоб разом досягати нових висот. Давайте будувати успішне майбутнє разом!",
+    about_text: "Ми — диспетчерська команда професіоналів, що динамічно розвивається, відкрита до співпраці та нових можливостей.",
     trailers_title: "Що ми використовуємо в роботі?",
     trailer_enclosed: "Enclosed",
     trailer_enclosed_desc: "Закритий трейлер — один із найбільш затребуваних та високооплачуваних варіантів для роботи.",
@@ -239,6 +241,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     contact_experience: "Давно ви у сфері?",
     contact_submit: "Відправити",
     contact_success: "Дякуємо! Ми зв'яжемося з вами найближчим часом.",
+    contact_sending: "Надсилаємо…",
+    contact_error: "Не вдалося надіслати заявку. Зателефонуйте нам: 253-527-7115.",
 
     footer_address: "100 N Howard St Ste W, Spokane, WA 99201",
     footer_call: "Дзвоніть нам",
@@ -303,7 +307,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     service_4_desc: "Our drivers receive payments per pick-ups the following Friday morning. We maintain a stable and transparent payment schedule.",
 
     about_title: "About Us",
-    about_text: "We are a dynamically growing dispatch team of professionals, open to collaboration and new opportunities. We seek partners who share our values and drive for growth, to reach new heights together. Let's build a successful future together!",
+    about_text: "We are a dynamically growing dispatch team of professionals, open to collaboration and new opportunities.",
     trailers_title: "What Do We Work With?",
     trailer_enclosed: "Enclosed",
     trailer_enclosed_desc: "Enclosed trailer — one of the most in-demand and highest-paying options.",
@@ -374,6 +378,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     contact_experience: "How long have you been in the field?",
     contact_submit: "Submit",
     contact_success: "Thank you! We'll contact you shortly.",
+    contact_sending: "Sending…",
+    contact_error: "Could not send the request. Please call us: 253-527-7115.",
 
     footer_address: "100 N Howard St Ste W, Spokane, WA 99201",
     footer_call: "Call Us",
@@ -438,7 +444,7 @@ export const translations: Record<Lang, Record<string, string>> = {
     service_4_desc: "Nuestros conductores reciben pagos por pick-ups el viernes siguiente por la mañana. Mantenemos un calendario de pagos estable y transparente.",
 
     about_title: "Sobre Nosotros",
-    about_text: "Somos un equipo de dispatch de profesionales en crecimiento dinámico, abiertos a la colaboración y nuevas oportunidades. Buscamos socios que compartan nuestros valores y deseo de crecimiento. ¡Construyamos un futuro exitoso juntos!",
+    about_text: "Somos un equipo de dispatch de profesionales en crecimiento dinámico, abiertos a la colaboración y nuevas oportunidades.",
     trailers_title: "¿Con qué trabajamos?",
     trailer_enclosed: "Enclosed",
     trailer_enclosed_desc: "Tráiler cerrado — una de las opciones más demandadas y mejor pagadas.",
@@ -509,6 +515,8 @@ export const translations: Record<Lang, Record<string, string>> = {
     contact_experience: "¿Cuánto tiempo lleva en el campo?",
     contact_submit: "Enviar",
     contact_success: "¡Gracias! Nos pondremos en contacto pronto.",
+    contact_sending: "Enviando…",
+    contact_error: "No se pudo enviar la solicitud. Llámenos: 253-527-7115.",
 
     footer_address: "100 N Howard St Ste W, Spokane, WA 99201",
     footer_call: "Llámenos",
