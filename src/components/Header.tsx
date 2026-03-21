@@ -27,8 +27,15 @@ export default function Header() {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    setLangOpen(false);
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      if (el) {
+        const headerHeight = 80;
+        const top = el.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }, 150);
   };
 
   return (

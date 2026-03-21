@@ -13,7 +13,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1920&q=80')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1720014432727-3ec661c27568?w=1920&q=80')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-emerald-900/60 to-gray-900/80" />
@@ -72,7 +72,7 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
+            onClick={(e) => { e.preventDefault(); const el = document.querySelector("#contact"); if (el) { const top = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top, behavior: "smooth" }); } }}
             className="group flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all shadow-2xl shadow-emerald-600/30 hover:shadow-emerald-500/40 hover:scale-105"
           >
             {t("hero_cta")}
@@ -80,7 +80,7 @@ export default function Hero() {
           </a>
           <a
             href="#services"
-            onClick={(e) => { e.preventDefault(); document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" }); }}
+            onClick={(e) => { e.preventDefault(); const el = document.querySelector("#services"); if (el) { const top = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top, behavior: "smooth" }); } }}
             className="flex items-center gap-2 text-white/80 hover:text-white px-8 py-4 rounded-2xl text-lg font-medium transition-all border border-white/20 hover:border-white/40 hover:bg-white/5"
           >
             {t("hero_learn")}

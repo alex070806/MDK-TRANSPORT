@@ -52,7 +52,7 @@ export default function Footer() {
                 <a
                   key={link.key}
                   href={link.href}
-                  onClick={(e) => { e.preventDefault(); document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" }); }}
+                  onClick={(e) => { e.preventDefault(); const el = document.querySelector(link.href); if (el) { const top = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top, behavior: "smooth" }); } }}
                   className="block text-sm hover:text-emerald-400 transition-colors"
                 >
                   {t(link.key)}
