@@ -14,6 +14,7 @@ export default function WhyUs() {
 
   return (
     <section className="py-24 sm:py-32 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-pattern-diagonal pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <AnimateIn className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -27,7 +28,7 @@ export default function WhyUs() {
             return (
               <AnimateIn key={i} delay={i * 0.08}>
                 <div className="text-center group">
-                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-emerald-100 group-hover:bg-emerald-500 flex items-center justify-center transition-colors duration-300">
+                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-emerald-100 group-hover:bg-emerald-500 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-emerald-500/25">
                     <Icon className="w-10 h-10 text-emerald-600 group-hover:text-white transition-colors duration-300" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">

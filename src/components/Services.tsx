@@ -15,6 +15,7 @@ export default function Services() {
 
   return (
     <section id="services" className="py-24 sm:py-32 bg-gray-50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-pattern-dots opacity-40 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <AnimateIn className="text-center mb-16 sm:mb-20">
           <span className="inline-block bg-emerald-100 text-emerald-700 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
@@ -33,8 +34,8 @@ export default function Services() {
             const Icon = service.icon;
             return (
               <AnimateIn key={i} delay={i * 0.07}>
-                <div className="group bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 hover:border-emerald-200 h-full">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 shadow-lg`}>
+                <div className="group bg-white rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-emerald-200 h-full hover:-translate-y-1">
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-emerald-700 transition-colors">

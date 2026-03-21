@@ -14,6 +14,7 @@ export default function HowWeWork() {
 
   return (
     <section className="py-24 sm:py-32 bg-gradient-to-br from-gray-900 via-gray-900 to-emerald-950 relative overflow-hidden">
+      <div className="absolute inset-0 bg-pattern-dots-dark pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <AnimateIn className="text-center mb-16 sm:mb-20">
           <span className="inline-block bg-emerald-500/20 text-emerald-400 px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-emerald-500/30">
@@ -34,9 +35,9 @@ export default function HowWeWork() {
                     <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-px bg-gradient-to-r from-emerald-500/50 to-transparent" />
                   )}
 
-                  <div className="relative bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors duration-300 group-hover:border-emerald-500/30 h-full">
+                  <div className="relative bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 group-hover:border-emerald-500/30 h-full group-hover:-translate-y-1">
                     <div className="flex items-start gap-4 mb-6">
-                      <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/25">
+                      <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/25 group-hover:scale-110 transition-transform duration-300">
                         <Icon className="w-7 h-7 text-white" />
                       </div>
                       <span className="text-5xl font-bold text-emerald-500/20">
