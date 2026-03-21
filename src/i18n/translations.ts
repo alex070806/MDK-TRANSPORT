@@ -9,7 +9,6 @@ export const langNames: Record<Lang, string> = {
 
 export const translations: Record<Lang, Record<string, string>> = {
   ru: {
-    // Nav
     nav_home: "Главная",
     nav_services: "Сервис",
     nav_about: "О нас",
@@ -17,13 +16,11 @@ export const translations: Record<Lang, Record<string, string>> = {
     nav_contact: "Контакты",
     call_us: "Звоните 24/7",
 
-    // Hero
     hero_title: "Ваш надёжный партнёр в автоперевозках",
     hero_subtitle: "Наш гросс — №1 на рынке! Ищете надёжную диспетчерскую? Мы всегда на связи и готовы помочь!",
     hero_cta: "Оставить заявку",
     hero_learn: "Узнать больше",
 
-    // Services
     services_title: "Наше предложение",
     services_subtitle: "Наши условия прозрачны, понятны и разработаны по единым стандартам",
     service_1_title: "12%",
@@ -35,7 +32,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     service_4_title: "Быстрые выплаты",
     service_4_desc: "Наши водители получают выплаты по пик-апам на следующей неделе в пятницу утром. Мы придерживаемся стабильного и прозрачного графика выплат.",
 
-    // About
     about_title: "О компании",
     about_text: "Мы — динамично развивающаяся диспетчерская команда профессионалов, открытая к сотрудничеству и новым возможностям. Мы ищем партнеров, которые разделяют наши ценности и стремление к росту, чтобы вместе достигать новых высот. Давайте строить успешное будущее вместе!",
     trailers_title: "Что мы используем в работе?",
@@ -48,7 +44,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     trailer_semi: "Semi",
     trailer_semi_desc: "Семи — самый высокооплачиваемый вариант, но требует коммерческих прав.",
 
-    // How we work
     how_title: "Как мы работаем",
     how_step1_title: "Звонок",
     how_step1_desc: "Мы связываемся с вами в удобное время, подробно обсуждаем все условия и согласовываем детали сотрудничества, чтобы сделать процесс максимально комфортным и выгодным для вас.",
@@ -57,7 +52,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     how_step3_title: "Начало работы",
     how_step3_desc: "Мы сразу соединяем вас с вашим персональным диспетчером, который берет работу в свои руки, и запускаем наше сотрудничество!",
 
-    // Why us
     why_title: "Почему мы?",
     why_1_title: "Прозрачные условия",
     why_1_desc: "Честное сотрудничество без скрытых платежей и депозитов.",
@@ -66,8 +60,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     why_3_title: "Стабильные выплаты",
     why_3_desc: "Оплата по пик-апам каждую пятницу утром, без задержек.",
 
-    // Team
+    team_badge: "Команда",
     team_title: "Наш принцип работы",
+    team_role: "Диспетчер",
     team_mikhail: "Михаил",
     team_mikhail_desc: "Мы всегда составляем маршруты с учетом пожеланий водителя, чтобы обеспечить комфортные и удобные условия для работы. Ваши предпочтения для нас в приоритете, и мы стараемся учитывать все детали, чтобы каждый рейс был максимально эффективным и комфортным.",
     team_denis: "Денис",
@@ -75,12 +70,10 @@ export const translations: Record<Lang, Record<string, string>> = {
     team_daniil: "Даниил",
     team_daniil_desc: "Я всегда стараюсь уделять водителю максимум внимания, чтобы понимать его потребности и быть с ним на одной волне. Для меня важно создать комфортные условия, обеспечить поддержку и наладить доверительное сотрудничество.",
 
-    // Stats
     stats_drivers: "Водителей",
     stats_trips: "Рейсов",
     stats_experience: "Лет опыта",
 
-    // Reviews
     reviews_title: "Отзывы наших партнёров",
     review_1_name: "Алексей",
     review_1_role: "Owner-Operator",
@@ -101,7 +94,6 @@ export const translations: Record<Lang, Record<string, string>> = {
     review_6_role: "Owner-Operator",
     review_6_text: "Я объездил полстраны и с уверенностью могу сказать — MDK Transport LLC знают, как организовать работу. Постоянные выгодные рейсы по авто перевозкам, всегда с хорошим гроссом. Никогда не брошен — в любое время на связи. Чувствуется уважение и профессионализм. Если ищете стабильность — вам сюда.",
 
-    // Contact
     contact_title: "Оставьте заявку — и мы сразу возьмёмся за дело!",
     contact_subtitle: "Или звоните — 253-527-7115. Мы на связи!",
     contact_name: "Ваше имя",
@@ -113,15 +105,42 @@ export const translations: Record<Lang, Record<string, string>> = {
     contact_submit: "Отправить",
     contact_success: "Спасибо! Мы свяжемся с вами в ближайшее время.",
 
-    // Footer
     footer_address: "100 N Howard St Ste W, Spokane, WA 99201",
     footer_call: "Звоните нам",
     footer_privacy: "Политика конфиденциальности",
     footer_rights: "Все права защищены",
+    footer_map_title: "Наш офис",
 
-    // Privacy
     privacy_title: "Политика конфиденциальности",
     privacy_back: "Вернуться на главную",
+    privacy_intro: "MDK Transport LLC («мы», «наш» или «нас») обязуется защищать вашу конфиденциальность. Настоящая Политика конфиденциальности объясняет, как мы собираем, используем и защищаем вашу персональную информацию при посещении нашего сайта или использовании наших услуг.",
+    privacy_collect_title: "Какую информацию мы собираем",
+    privacy_collect_text: "Мы можем собирать персональные данные, которые вы добровольно предоставляете при заполнении контактной формы, включая ваше имя, номер телефона и информацию о вашем транспорте и опыте.",
+    privacy_use_title: "Как мы используем вашу информацию",
+    privacy_use_text: "Мы используем собранную информацию для связи с вами по поводу наших диспетчерских услуг, для ответов на ваши запросы и улучшения наших услуг. Мы не продаём и не передаём вашу информацию третьим лицам.",
+    privacy_security_title: "Безопасность данных",
+    privacy_security_text: "Мы применяем соответствующие технические и организационные меры для защиты вашей персональной информации от несанкционированного доступа, изменения, раскрытия или уничтожения.",
+    privacy_contact_title: "Связаться с нами",
+    privacy_contact_text: "Если у вас есть вопросы о настоящей Политике конфиденциальности, свяжитесь с нами по телефону 253-527-7115 или посетите наш офис по адресу 100 N Howard St Ste W, Spokane, WA 99201.",
+
+    faq_badge: "FAQ",
+    faq_title: "Часто задаваемые вопросы",
+    faq_1_q: "Какая комиссия за диспетчерские услуги?",
+    faq_1_a: "Наша комиссия — всего 12% от гросса. Остальные 88% — это ваш чистый доход. В эту комиссию входят все услуги, кроме страхования груза.",
+    faq_2_q: "Нужен ли депозит для начала работы?",
+    faq_2_a: "Нет, мы не берём никакого депозита. Наше сотрудничество строится на доверии и прозрачных условиях, а не на залогах.",
+    faq_3_q: "Сколько стоит страховка и когда она оплачивается?",
+    faq_3_a: "Страхование груза стоит $300 в неделю. Если вы не работали в течение недели — платить не нужно. Всё честно и просто.",
+    faq_4_q: "Когда и как происходят выплаты?",
+    faq_4_a: "Выплаты по пик-апам поступают каждую пятницу утром следующей недели. Мы придерживаемся стабильного графика без задержек.",
+    faq_5_q: "Могу ли я выбирать направления и маршруты?",
+    faq_5_a: "Да! Мы всегда учитываем пожелания водителя при составлении маршрутов. Ваш комфорт и предпочтения для нас в приоритете.",
+    faq_6_q: "С какими типами трейлеров вы работаете?",
+    faq_6_a: "Мы работаем со всеми основными типами: Enclosed, Open 36+, Open 50+ и Semi. Для Semi-трейлеров требуются коммерческие права (CDL).",
+    faq_7_q: "Как быстро можно начать работу?",
+    faq_7_a: "Процесс максимально быстрый: звонок → подписание контракта через DocuSign → подключение к персональному диспетчеру. Обычно это занимает 1–2 дня.",
+    faq_8_q: "Есть ли поддержка 24/7?",
+    faq_8_a: "Да, наша команда на связи круглосуточно. В любое время дня и ночи мы готовы помочь с любыми вопросами в рейсе.",
   },
 
   ua: {
@@ -176,7 +195,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     why_3_title: "Стабільні виплати",
     why_3_desc: "Оплата по пік-апам щоп'ятниці вранці, без затримок.",
 
+    team_badge: "Команда",
     team_title: "Наш принцип роботи",
+    team_role: "Диспетчер",
     team_mikhail: "Михайло",
     team_mikhail_desc: "Ми завжди складаємо маршрути з урахуванням побажань водія, щоб забезпечити комфортні та зручні умови для роботи.",
     team_denis: "Денис",
@@ -223,9 +244,38 @@ export const translations: Record<Lang, Record<string, string>> = {
     footer_call: "Дзвоніть нам",
     footer_privacy: "Політика конфіденційності",
     footer_rights: "Усі права захищені",
+    footer_map_title: "Наш офіс",
 
     privacy_title: "Політика конфіденційності",
     privacy_back: "Повернутися на головну",
+    privacy_intro: "MDK Transport LLC («ми», «наш» або «нас») зобов'язується захищати вашу конфіденційність. Ця Політика конфіденційності пояснює, як ми збираємо, використовуємо та захищаємо вашу персональну інформацію при відвідуванні нашого сайту або використанні наших послуг.",
+    privacy_collect_title: "Яку інформацію ми збираємо",
+    privacy_collect_text: "Ми можемо збирати персональні дані, які ви добровільно надаєте при заповненні контактної форми, включаючи ваше ім'я, номер телефону та інформацію про ваш транспорт і досвід.",
+    privacy_use_title: "Як ми використовуємо вашу інформацію",
+    privacy_use_text: "Ми використовуємо зібрану інформацію для зв'язку з вами щодо наших диспетчерських послуг, для відповідей на ваші запити та покращення наших послуг. Ми не продаємо і не передаємо вашу інформацію третім особам.",
+    privacy_security_title: "Безпека даних",
+    privacy_security_text: "Ми застосовуємо відповідні технічні та організаційні заходи для захисту вашої персональної інформації від несанкціонованого доступу, зміни, розкриття або знищення.",
+    privacy_contact_title: "Зв'язатися з нами",
+    privacy_contact_text: "Якщо у вас є питання про цю Політику конфіденційності, зв'яжіться з нами за телефоном 253-527-7115 або відвідайте наш офіс за адресою 100 N Howard St Ste W, Spokane, WA 99201.",
+
+    faq_badge: "FAQ",
+    faq_title: "Часті запитання",
+    faq_1_q: "Яка комісія за диспетчерські послуги?",
+    faq_1_a: "Наша комісія — лише 12% від гросу. Решта 88% — це ваш чистий дохід. До комісії входять усі послуги, крім страхування вантажу.",
+    faq_2_q: "Чи потрібен депозит для початку роботи?",
+    faq_2_a: "Ні, ми не беремо жодного депозиту. Наша співпраця будується на довірі та прозорих умовах, а не на заставах.",
+    faq_3_q: "Скільки коштує страховка і коли вона оплачується?",
+    faq_3_a: "Страхування вантажу коштує $300 на тиждень. Якщо ви не працювали протягом тижня — платити не потрібно. Все чесно і просто.",
+    faq_4_q: "Коли і як відбуваються виплати?",
+    faq_4_a: "Виплати по пік-апам надходять щоп'ятниці вранці наступного тижня. Ми дотримуємося стабільного графіку без затримок.",
+    faq_5_q: "Чи можу я обирати напрямки та маршрути?",
+    faq_5_a: "Так! Ми завжди враховуємо побажання водія при складанні маршрутів. Ваш комфорт і вподобання для нас у пріоритеті.",
+    faq_6_q: "З якими типами трейлерів ви працюєте?",
+    faq_6_a: "Ми працюємо з усіма основними типами: Enclosed, Open 36+, Open 50+ та Semi. Для Semi-трейлерів потрібні комерційні права (CDL).",
+    faq_7_q: "Як швидко можна почати працювати?",
+    faq_7_a: "Процес максимально швидкий: дзвінок → підписання контракту через DocuSign → підключення до персонального диспетчера. Зазвичай це займає 1–2 дні.",
+    faq_8_q: "Чи є підтримка 24/7?",
+    faq_8_a: "Так, наша команда на зв'язку цілодобово. У будь-який час дня і ночі ми готові допомогти з будь-якими питаннями в рейсі.",
   },
 
   en: {
@@ -280,7 +330,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     why_3_title: "Stable Payments",
     why_3_desc: "Payment per pick-ups every Friday morning, no delays.",
 
+    team_badge: "Team",
     team_title: "Our Work Principles",
+    team_role: "Dispatcher",
     team_mikhail: "Mikhail",
     team_mikhail_desc: "We always plan routes considering driver preferences to ensure comfortable and convenient working conditions.",
     team_denis: "Denis",
@@ -327,9 +379,38 @@ export const translations: Record<Lang, Record<string, string>> = {
     footer_call: "Call Us",
     footer_privacy: "Privacy Policy",
     footer_rights: "All rights reserved",
+    footer_map_title: "Our Office",
 
     privacy_title: "Privacy Policy",
     privacy_back: "Back to Home",
+    privacy_intro: "MDK Transport LLC (\"we\", \"our\", or \"us\") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information when you visit our website or use our services.",
+    privacy_collect_title: "Information We Collect",
+    privacy_collect_text: "We may collect personal information that you voluntarily provide to us when you fill out a contact form, including your name, phone number, and information about your vehicle and experience level.",
+    privacy_use_title: "How We Use Your Information",
+    privacy_use_text: "We use the information we collect to contact you regarding our dispatch services, to respond to your inquiries, and to improve our services. We do not sell or share your personal information with third parties.",
+    privacy_security_title: "Data Security",
+    privacy_security_text: "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.",
+    privacy_contact_title: "Contact Us",
+    privacy_contact_text: "If you have any questions about this Privacy Policy, please contact us at 253-527-7115 or visit our office at 100 N Howard St Ste W, Spokane, WA 99201.",
+
+    faq_badge: "FAQ",
+    faq_title: "Frequently Asked Questions",
+    faq_1_q: "What is the dispatch commission rate?",
+    faq_1_a: "Our commission is only 12% of gross. The remaining 88% is your net income. This commission covers all services except cargo insurance.",
+    faq_2_q: "Is a deposit required to start working?",
+    faq_2_a: "No, we don't charge any deposit. Our partnership is built on trust and transparent terms, not collateral.",
+    faq_3_q: "How much is insurance and when is it paid?",
+    faq_3_a: "Cargo insurance costs $300 per week. If you didn't work during the week — no payment needed. Simple and honest.",
+    faq_4_q: "When and how are payments made?",
+    faq_4_a: "Payments per pick-ups arrive every Friday morning the following week. We maintain a stable schedule with no delays.",
+    faq_5_q: "Can I choose directions and routes?",
+    faq_5_a: "Yes! We always consider driver preferences when planning routes. Your comfort and preferences are our priority.",
+    faq_6_q: "What types of trailers do you work with?",
+    faq_6_a: "We work with all major types: Enclosed, Open 36+, Open 50+, and Semi. Semi trailers require a commercial driving license (CDL).",
+    faq_7_q: "How quickly can I start working?",
+    faq_7_a: "The process is as fast as possible: call → sign contract via DocuSign → connect with your personal dispatcher. Usually takes 1–2 days.",
+    faq_8_q: "Is 24/7 support available?",
+    faq_8_a: "Yes, our team is available around the clock. Any time of day or night, we're ready to help with any questions on the road.",
   },
 
   es: {
@@ -384,7 +465,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     why_3_title: "Pagos Estables",
     why_3_desc: "Pago por pick-ups cada viernes por la mañana, sin retrasos.",
 
+    team_badge: "Equipo",
     team_title: "Nuestros Principios de Trabajo",
+    team_role: "Despachador",
     team_mikhail: "Mikhail",
     team_mikhail_desc: "Siempre planificamos rutas considerando las preferencias del conductor para garantizar condiciones de trabajo cómodas.",
     team_denis: "Denis",
@@ -431,8 +514,37 @@ export const translations: Record<Lang, Record<string, string>> = {
     footer_call: "Llámenos",
     footer_privacy: "Política de Privacidad",
     footer_rights: "Todos los derechos reservados",
+    footer_map_title: "Nuestra Oficina",
 
     privacy_title: "Política de Privacidad",
     privacy_back: "Volver al Inicio",
+    privacy_intro: "MDK Transport LLC (\"nosotros\", \"nuestro\" o \"nos\") se compromete a proteger su privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos su información personal cuando visita nuestro sitio web o utiliza nuestros servicios.",
+    privacy_collect_title: "Información que Recopilamos",
+    privacy_collect_text: "Podemos recopilar información personal que usted proporciona voluntariamente al completar un formulario de contacto, incluyendo su nombre, número de teléfono e información sobre su vehículo y nivel de experiencia.",
+    privacy_use_title: "Cómo Usamos Su Información",
+    privacy_use_text: "Usamos la información recopilada para contactarlo sobre nuestros servicios de dispatch, responder a sus consultas y mejorar nuestros servicios. No vendemos ni compartimos su información personal con terceros.",
+    privacy_security_title: "Seguridad de Datos",
+    privacy_security_text: "Implementamos medidas técnicas y organizativas apropiadas para proteger su información personal contra acceso no autorizado, alteración, divulgación o destrucción.",
+    privacy_contact_title: "Contáctenos",
+    privacy_contact_text: "Si tiene alguna pregunta sobre esta Política de Privacidad, contáctenos al 253-527-7115 o visite nuestra oficina en 100 N Howard St Ste W, Spokane, WA 99201.",
+
+    faq_badge: "FAQ",
+    faq_title: "Preguntas Frecuentes",
+    faq_1_q: "¿Cuál es la comisión por servicios de dispatch?",
+    faq_1_a: "Nuestra comisión es solo el 12% del gross. El 88% restante es su ingreso neto. Esta comisión cubre todos los servicios excepto el seguro de carga.",
+    faq_2_q: "¿Se requiere depósito para comenzar a trabajar?",
+    faq_2_a: "No, no cobramos ningún depósito. Nuestra asociación se basa en la confianza y condiciones transparentes, no en garantías.",
+    faq_3_q: "¿Cuánto cuesta el seguro y cuándo se paga?",
+    faq_3_a: "El seguro de carga cuesta $300 por semana. Si no trabajó durante la semana — no hay pago. Simple y honesto.",
+    faq_4_q: "¿Cuándo y cómo se realizan los pagos?",
+    faq_4_a: "Los pagos por pick-ups llegan cada viernes por la mañana de la semana siguiente. Mantenemos un calendario estable sin retrasos.",
+    faq_5_q: "¿Puedo elegir direcciones y rutas?",
+    faq_5_a: "¡Sí! Siempre consideramos las preferencias del conductor al planificar rutas. Su comodidad y preferencias son nuestra prioridad.",
+    faq_6_q: "¿Con qué tipos de tráileres trabajan?",
+    faq_6_a: "Trabajamos con todos los tipos principales: Enclosed, Open 36+, Open 50+ y Semi. Los tráileres Semi requieren licencia de conducir comercial (CDL).",
+    faq_7_q: "¿Qué tan rápido puedo comenzar a trabajar?",
+    faq_7_a: "El proceso es lo más rápido posible: llamada → firma de contrato vía DocuSign → conexión con su despachador personal. Generalmente toma 1–2 días.",
+    faq_8_q: "¿Hay soporte 24/7?",
+    faq_8_a: "Sí, nuestro equipo está disponible las 24 horas. A cualquier hora del día o la noche, estamos listos para ayudar con cualquier pregunta en la carretera.",
   },
 };

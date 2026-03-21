@@ -18,9 +18,14 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -42,13 +47,18 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 shadow-lg"
+          ? "bg-white/80 backdrop-blur-xl shadow-lg shadow-gray-900/5"
           : "bg-transparent"
       }`}
     >
+      {/* Scroll progress bar */}
+      <div
+        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-emerald-500 to-emerald-400 transition-[width] duration-150 ease-out"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
           <a href="#hero" className="flex items-center gap-3 group" onClick={(e) => { e.preventDefault(); handleNavClick("#hero"); }}>
             <img
               src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.jpg`}
@@ -60,7 +70,6 @@ export default function Header() {
             </span>
           </a>
 
-          {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <a
@@ -76,9 +85,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Right side */}
           <div className="flex items-center gap-3">
-            {/* Language Selector */}
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
@@ -116,7 +123,6 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
-            {/* Phone */}
             <a
               href="tel:+12535277115"
               className="hidden sm:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors shadow-lg shadow-emerald-600/25"
@@ -125,7 +131,6 @@ export default function Header() {
               253-527-7115
             </a>
 
-            {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className={`lg:hidden p-2 rounded-lg transition-colors ${
@@ -138,7 +143,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -146,7 +150,7 @@ export default function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden bg-white border-t border-gray-100"
+            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-gray-100"
           >
             <div className="px-4 py-4 space-y-1">
               {navItems.map((item) => (

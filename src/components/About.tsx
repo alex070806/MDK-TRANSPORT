@@ -17,6 +17,7 @@ export default function About() {
 
   return (
     <section id="about" className="py-24 sm:py-32 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-pattern-grid pointer-events-none" />
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-emerald-50/50 rounded-full -translate-x-1/2 -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -72,9 +73,9 @@ export default function About() {
             const SvgComponent = trailerSVGs[key];
             return (
               <AnimateIn key={key} delay={i * 0.07}>
-                <div className="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 text-center overflow-hidden hover:ring-1 hover:ring-emerald-500/30 transition-all duration-300 h-full">
+                <div className="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 text-center overflow-hidden hover:ring-1 hover:ring-emerald-500/30 transition-all duration-300 h-full hover:-translate-y-1">
                   <div className="relative">
-                    <div className="w-full h-24 sm:h-28 mb-5 flex items-center justify-center px-1">
+                    <div className="w-full h-24 sm:h-28 mb-5 flex items-center justify-center px-1 group-hover:scale-105 transition-transform duration-500">
                       <SvgComponent className="w-full h-full" />
                     </div>
                     <h4 className="text-xl font-bold text-emerald-400 mb-3">

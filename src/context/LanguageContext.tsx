@@ -1,6 +1,8 @@
 "use client";
-import { createContext, useContext, useState, useCallback, ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useEffect, ReactNode } from "react";
 import { Lang, translations } from "@/i18n/translations";
+
+const langToHtml: Record<Lang, string> = { ru: "ru", ua: "uk", en: "en", es: "es" };
 
 interface LanguageContextType {
   lang: Lang;
@@ -12,6 +14,10 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>("ru");
+
+  useEffect(() => {
+    document.documentElement.lang = langToHtml[lang];
+  }, [lang]);
 
   const t = useCallback(
     (key: string) => translations[lang][key] || key,

@@ -17,7 +17,7 @@ export default function PrivacyModal() {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/60" onClick={() => setOpen(false)} />
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setOpen(false)} />
       <div className="relative bg-white rounded-3xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-8 sm:p-10 shadow-2xl">
         <button
           onClick={() => setOpen(false)}
@@ -29,35 +29,19 @@ export default function PrivacyModal() {
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">{t("privacy_title")}</h2>
 
         <div className="prose prose-gray max-w-none text-sm leading-relaxed space-y-4">
-          <p>
-            MDK Transport LLC (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;) is committed to protecting your privacy.
-            This Privacy Policy explains how we collect, use, and safeguard your personal information when you
-            visit our website or use our services.
-          </p>
+          <p>{t("privacy_intro")}</p>
 
-          <h3 className="text-lg font-semibold text-gray-900 mt-6">Information We Collect</h3>
-          <p>
-            We may collect personal information that you voluntarily provide to us when you fill out a contact form,
-            including your name, phone number, and information about your vehicle and experience level.
-          </p>
+          <h3 className="text-lg font-semibold text-gray-900 mt-6">{t("privacy_collect_title")}</h3>
+          <p>{t("privacy_collect_text")}</p>
 
-          <h3 className="text-lg font-semibold text-gray-900 mt-6">How We Use Your Information</h3>
-          <p>
-            We use the information we collect to contact you regarding our dispatch services, to respond to your
-            inquiries, and to improve our services. We do not sell or share your personal information with third parties.
-          </p>
+          <h3 className="text-lg font-semibold text-gray-900 mt-6">{t("privacy_use_title")}</h3>
+          <p>{t("privacy_use_text")}</p>
 
-          <h3 className="text-lg font-semibold text-gray-900 mt-6">Data Security</h3>
-          <p>
-            We implement appropriate technical and organizational measures to protect your personal information
-            against unauthorized access, alteration, disclosure, or destruction.
-          </p>
+          <h3 className="text-lg font-semibold text-gray-900 mt-6">{t("privacy_security_title")}</h3>
+          <p>{t("privacy_security_text")}</p>
 
-          <h3 className="text-lg font-semibold text-gray-900 mt-6">Contact Us</h3>
-          <p>
-            If you have any questions about this Privacy Policy, please contact us at 253-527-7115 or visit our
-            office at 100 N Howard St Ste W, Spokane, WA 99201.
-          </p>
+          <h3 className="text-lg font-semibold text-gray-900 mt-6">{t("privacy_contact_title")}</h3>
+          <p>{t("privacy_contact_text")}</p>
         </div>
 
         <button
