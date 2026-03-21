@@ -98,8 +98,8 @@ export default function About() {
               >
                 <div className="absolute inset-0 bg-emerald-600/0 group-hover:bg-emerald-600/10 transition-colors duration-300" />
                 <div className="relative">
-                  <div className="w-full h-28 mb-4 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                    <SvgComponent className="w-full h-full" />
+                  <div className="w-full h-24 sm:h-28 mb-5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 px-1">
+                    <SvgComponent className="w-full h-full drop-shadow-[0_0_8px_rgba(16,185,129,0.15)]" />
                   </div>
                   <h4 className="text-xl font-bold text-emerald-400 mb-3">
                     {t(`trailer_${key}`)}
