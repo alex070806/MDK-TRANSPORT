@@ -19,7 +19,7 @@ export default function Footer() {
               <span className="text-white font-bold text-xl">MDK Transport LLC</span>
             </div>
             <p className="text-gray-500 leading-relaxed text-sm">
-              {t("about_text").substring(0, 120)}...
+              {t("about_text")}
             </p>
           </div>
 
