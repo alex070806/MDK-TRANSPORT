@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -19,28 +19,25 @@ export default function Reviews() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setDirection(1);
-      setCurrent((prev) => (prev + 1) % reviewKeys.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const next = () => {
+  const next = useCallback(() => {
     setDirection(1);
     setCurrent((prev) => (prev + 1) % reviewKeys.length);
-  };
+  }, []);
 
-  const prev = () => {
+  const prev = useCallback(() => {
     setDirection(-1);
     setCurrent((prev) => (prev - 1 + reviewKeys.length) % reviewKeys.length);
-  };
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 6000);
+    return () => clearInterval(timer);
+  }, [next]);
 
   const variants = {
-    enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
+    enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0 }),
     center: { x: 0, opacity: 1 },
-    exit: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0 }),
+    exit: (dir: number) => ({ x: dir > 0 ? -200 : 200, opacity: 0 }),
   };
 
   const reviewNum = reviewKeys[current];
@@ -48,26 +45,15 @@ export default function Reviews() {
 
   return (
     <section id="reviews" className="py-24 sm:py-32 bg-gray-900 relative overflow-hidden">
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-emerald-600/10 rounded-full blur-[100px]" />
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-[120px]" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <span className="inline-block bg-emerald-500/20 text-emerald-400 px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-emerald-500/30">
             {t("nav_reviews")}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
             {t("reviews_title")}
           </h2>
-        </motion.div>
+        </div>
 
         <div className="relative max-w-4xl mx-auto">
           <div className="min-h-[320px] sm:min-h-[280px] flex items-center">
@@ -79,10 +65,10 @@ export default function Reviews() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="w-full"
               >
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 sm:p-12">
+                <div className="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12">
                   <Quote className="w-10 h-10 text-emerald-500/30 mb-6" />
 
                   <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-8">
@@ -112,7 +98,7 @@ export default function Reviews() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prev}
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-emerald-500 text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
+              className="w-12 h-12 rounded-full bg-white/10 hover:bg-emerald-500 text-white flex items-center justify-center transition-colors duration-300"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -131,7 +117,7 @@ export default function Reviews() {
 
             <button
               onClick={next}
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-emerald-500 text-white flex items-center justify-center transition-all duration-300 hover:scale-110"
+              className="w-12 h-12 rounded-full bg-white/10 hover:bg-emerald-500 text-white flex items-center justify-center transition-colors duration-300"
             >
               <ChevronRight className="w-5 h-5" />
             </button>

@@ -21,7 +21,7 @@ export default function Header() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -39,13 +39,10 @@ export default function Header() {
   };
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-lg"
+          ? "bg-white/95 shadow-lg"
           : "bg-transparent"
       }`}
     >
@@ -70,7 +67,7 @@ export default function Header() {
                 key={item.key}
                 href={item.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(item.href); }}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-emerald-500/10 ${
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-emerald-500/10 ${
                   scrolled ? "text-gray-700 hover:text-emerald-600" : "text-white/90 hover:text-white"
                 }`}
               >
@@ -85,7 +82,7 @@ export default function Header() {
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
-                className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-all ${
+                className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                   scrolled
                     ? "text-gray-700 hover:bg-gray-100"
                     : "text-white/90 hover:bg-white/10"
@@ -100,6 +97,7 @@ export default function Header() {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.15 }}
                     className="absolute right-0 top-full mt-1 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden min-w-[140px]"
                   >
                     {(Object.entries(langNames) as [Lang, string][]).map(([code, name]) => (
@@ -121,7 +119,7 @@ export default function Header() {
             {/* Phone */}
             <a
               href="tel:+12535277115"
-              className="hidden sm:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-sm font-medium transition-all shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40"
+              className="hidden sm:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors shadow-lg shadow-emerald-600/25"
             >
               <Phone className="w-4 h-4" />
               253-527-7115
@@ -147,7 +145,8 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-100"
+            transition={{ duration: 0.2 }}
+            className="lg:hidden bg-white border-t border-gray-100"
           >
             <div className="px-4 py-4 space-y-1">
               {navItems.map((item) => (
@@ -171,6 +170,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }
