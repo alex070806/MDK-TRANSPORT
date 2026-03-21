@@ -103,7 +103,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     contact_truck_no: "Нет",
     contact_experience: "Давно ли вы в сфере?",
     contact_submit: "Отправить",
+    contact_sending: "Отправляем...",
     contact_success: "Спасибо! Мы свяжемся с вами в ближайшее время.",
+    contact_error: "Ошибка отправки. Позвоните нам: 253-527-7115",
 
     footer_address: "100 N Howard St Ste W, Spokane, WA 99201",
     footer_call: "Звоните нам",
@@ -238,7 +240,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     contact_truck_no: "Ні",
     contact_experience: "Давно ви у сфері?",
     contact_submit: "Відправити",
+    contact_sending: "Відправляємо...",
     contact_success: "Дякуємо! Ми зв'яжемося з вами найближчим часом.",
+    contact_error: "Помилка відправки. Зателефонуйте нам: 253-527-7115",
 
     footer_address: "100 N Howard St Ste W, Spokane, WA 99201",
     footer_call: "Дзвоніть нам",
@@ -373,7 +377,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     contact_truck_no: "No",
     contact_experience: "How long have you been in the field?",
     contact_submit: "Submit",
+    contact_sending: "Sending...",
     contact_success: "Thank you! We'll contact you shortly.",
+    contact_error: "Sending failed. Please call us: 253-527-7115",
 
     footer_address: "100 N Howard St Ste W, Spokane, WA 99201",
     footer_call: "Call Us",
@@ -508,7 +514,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     contact_truck_no: "No",
     contact_experience: "¿Cuánto tiempo lleva en el campo?",
     contact_submit: "Enviar",
+    contact_sending: "Enviando...",
     contact_success: "¡Gracias! Nos pondremos en contacto pronto.",
+    contact_error: "Error al enviar. Llámenos: 253-527-7115",
 
     footer_address: "100 N Howard St Ste W, Spokane, WA 99201",
     footer_call: "Llámenos",
