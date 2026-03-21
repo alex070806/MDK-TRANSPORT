@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -18,6 +18,9 @@ export default function Reviews() {
   const { t } = useLanguage();
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
+  const touchStart = useRef(0);
+  const touchEnd = useRef(0);
+  const swiping = useRef(false);
 
   const next = useCallback(() => {
     setDirection(1);
@@ -34,10 +37,40 @@ export default function Reviews() {
     return () => clearInterval(timer);
   }, [next]);
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStart.current = e.targetTouches[0].clientX;
+    touchEnd.current = e.targetTouches[0].clientX;
+    swiping.current = true;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (swiping.current) {
+      touchEnd.current = e.targetTouches[0].clientX;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (!swiping.current) return;
+    swiping.current = false;
+    const diff = touchStart.current - touchEnd.current;
+    const threshold = 50;
+    if (diff > threshold) next();
+    else if (diff < -threshold) prev();
+  };
+
   const variants = {
-    enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (dir: number) => ({ x: dir > 0 ? -200 : 200, opacity: 0 }),
+    enter: (dir: number) => ({
+      x: dir > 0 ? 150 : -150,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      x: dir > 0 ? -150 : 150,
+      opacity: 0,
+    }),
   };
 
   const reviewNum = reviewKeys[current];
@@ -55,8 +88,13 @@ export default function Reviews() {
           </h2>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          <div className="min-h-[320px] sm:min-h-[280px] flex items-center">
+        <div
+          className="relative max-w-4xl mx-auto touch-pan-y"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className="min-h-[320px] sm:min-h-[280px] flex items-center overflow-hidden">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={current}
@@ -65,10 +103,14 @@ export default function Reviews() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+                transition={{
+                  x: { type: "tween", duration: 0.25, ease: [0.25, 0.1, 0.25, 1] },
+                  opacity: { duration: 0.2 },
+                }}
+                style={{ willChange: "transform, opacity" }}
                 className="w-full"
               >
-                <div className="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12">
+                <div className="bg-white/5 border border-white/10 rounded-3xl p-8 sm:p-12 select-none">
                   <Quote className="w-10 h-10 text-emerald-500/30 mb-6" />
 
                   <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-8">
@@ -98,7 +140,8 @@ export default function Reviews() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prev}
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-emerald-500 text-white flex items-center justify-center transition-colors duration-300"
+              className="w-12 h-12 rounded-full bg-white/10 hover:bg-emerald-500 text-white flex items-center justify-center transition-colors duration-200"
+              aria-label="Previous review"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
@@ -108,7 +151,8 @@ export default function Reviews() {
                 <button
                   key={i}
                   onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
-                  className={`h-2 rounded-full transition-all duration-300 ${
+                  aria-label={`Review ${i + 1}`}
+                  className={`h-2 rounded-full transition-all duration-200 ${
                     i === current ? "w-8 bg-emerald-500" : "w-2 bg-white/20 hover:bg-white/40"
                   }`}
                 />
@@ -117,7 +161,8 @@ export default function Reviews() {
 
             <button
               onClick={next}
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-emerald-500 text-white flex items-center justify-center transition-colors duration-300"
+              className="w-12 h-12 rounded-full bg-white/10 hover:bg-emerald-500 text-white flex items-center justify-center transition-colors duration-200"
+              aria-label="Next review"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
