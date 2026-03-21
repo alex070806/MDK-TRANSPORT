@@ -1,14 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
-import { Building2, Truck } from "lucide-react";
+import { Building2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { EnclosedSVG, Open36SVG, Open50SVG, SemiSVG } from "./TrailerSVGs";
+import { ReactNode } from "react";
 
-const trailers = [
-  { key: "enclosed", icon: "M4 12h16M4 12l2-8h12l2 8M4 12v6a1 1 0 001 1h2a1 1 0 001-1v-1h8v1a1 1 0 001 1h2a1 1 0 001-1v-6" },
-  { key: "open36", icon: "" },
-  { key: "open50", icon: "" },
-  { key: "semi", icon: "" },
-];
+const trailerSVGs: Record<string, (props: { className?: string }) => ReactNode> = {
+  enclosed: EnclosedSVG,
+  open36: Open36SVG,
+  open50: Open50SVG,
+  semi: SemiSVG,
+};
 
 export default function About() {
   const { t } = useLanguage();
@@ -55,7 +57,7 @@ export default function About() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800&q=80"
+                src="https://images.unsplash.com/photo-1761917904658-2a9ecb84a169?w=800&q=80"
                 alt="Auto transport"
                 className="w-full h-80 sm:h-96 object-cover"
               />
@@ -82,30 +84,33 @@ export default function About() {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {["enclosed", "open36", "open50", "semi"].map((key, i) => (
-            <motion.div
-              key={key}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ y: -5, transition: { duration: 0.3 } }}
-              className="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 text-center overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-emerald-600/0 group-hover:bg-emerald-600/10 transition-colors duration-300" />
-              <div className="relative">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                  <Truck className="w-8 h-8 text-emerald-400" />
+          {(["enclosed", "open36", "open50", "semi"] as const).map((key, i) => {
+            const SvgComponent = trailerSVGs[key];
+            return (
+              <motion.div
+                key={key}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                className="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 text-center overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-emerald-600/0 group-hover:bg-emerald-600/10 transition-colors duration-300" />
+                <div className="relative">
+                  <div className="w-full h-28 mb-4 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <SvgComponent className="w-full h-full" />
+                  </div>
+                  <h4 className="text-xl font-bold text-emerald-400 mb-3">
+                    {t(`trailer_${key}`)}
+                  </h4>
+                  <p className="text-gray-400 text-sm leading-relaxed">
+                    {t(`trailer_${key}_desc`)}
+                  </p>
                 </div>
-                <h4 className="text-xl font-bold text-emerald-400 mb-3">
-                  {t(`trailer_${key}`)}
-                </h4>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {t(`trailer_${key}_desc`)}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
