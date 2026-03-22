@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Lang, langNames } from "@/i18n/translations";
+import SearchModal from "@/components/Search";
 
 const navItems = [
   { key: "nav_home", href: "#hero" },
@@ -61,7 +62,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <a href="#hero" className="flex items-center gap-3 group" onClick={(e) => { e.preventDefault(); handleNavClick("#hero"); }}>
             <img
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logo.jpg`}
+              src="/logo.jpg"
               alt="MDK Transport"
               className="h-10 sm:h-12 w-auto rounded"
             />
@@ -86,6 +87,7 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
+            <SearchModal />
             <div className="relative">
               <button
                 onClick={() => setLangOpen(!langOpen)}
